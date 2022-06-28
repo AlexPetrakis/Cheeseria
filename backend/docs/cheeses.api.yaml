@@ -1,0 +1,136 @@
+/cheeses:
+  get:
+    tags:
+      - cheese
+    summary: Retrieve all cheeses.
+    description: Return an array of all cheeses.
+    responses:
+      200:
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/definitions/cheese"
+  post:
+    tags:
+      - cheese
+    summary: Create a new cheese
+    description:
+    parameters:
+      - in: body
+        name: body
+        description: Cheese information
+        required: true
+        schema:
+          $ref: "#/definitions/cheese"
+    requestBody:
+      name: body
+      description: Cheese object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/definitions/cheese"
+    responses:
+      200:
+        description: successful operation
+        schema:
+          $ref: "#/definitions/cheese"
+      400:
+        description: Invalid request
+
+/cheeses/{id}:
+  get:
+    tags:
+      - cheese
+    summary: Find cheese by ID
+    description: Returns a cheese object
+    parameters:
+      - name: id
+        in: path
+        description: ID of the cheese to retrieve
+        required: true
+        type: string
+    responses:
+      200:
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/definitions/cheese"
+      404:
+        description: item not found
+  patch:
+    tags:
+      - cheese
+    summary: Update cheese by ID
+    description: Returns a cheese object
+    parameters:
+      - name: id
+        in: path
+        description: ID of the cheese to update
+        required: true
+        type: string
+    requestBody:
+      name: body
+      description: updated cheese object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/definitions/cheese"
+    responses:
+      200:
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/definitions/cheese"
+      404:
+        description: item not found
+delete:
+  tags:
+    - cheese
+  summary: Delete cheese by ID
+  description: Deletes a cheese by ID
+  parameters:
+    - name: id
+      in: path
+      description: ID of the cheese to delete
+      required: true
+      type: string
+  responses:
+    204:
+      description: successful operation - no content
+    404:
+      description: item not found
+definitions:
+  cheese:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Cheese ID - starting at 1
+        example: 1
+      name:
+        type: string
+        description: Cheese Name
+        example: Adelost
+      colour:
+        type: string
+        description: Cheese Colour
+        example: Golden  Orange
+      image:
+        type: string
+        description: Cheese image
+        example: https://cheese.com/media/img/cheese/Adelost_QnxYLx6.jpg
+      price:
+        type: number
+        description: Cheese Price in cents per kilogram.
+        example: 500

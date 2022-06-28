@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  full-stack-app:
+    build: .
+    ports:
+      - "4005:4005"
