@@ -38,6 +38,10 @@ npm run dev
 
 1. npm run test in both frontend/backend
 
+## Swagger
+
+Docs are available on http://localhost:4005/docs
+
 # Docker
 
 1.
@@ -47,8 +51,6 @@ docker-compose up --build
 ```
 
 2. This will build the dockerfile, browse to http://localhost:4005
-
-# Swagger docs are available on http://localhost:4005/docs
 
 # Improvements / Remaining tasks
 
