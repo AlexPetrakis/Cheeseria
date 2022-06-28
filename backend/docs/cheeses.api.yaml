@@ -94,22 +94,22 @@
                 $ref: "#/definitions/cheese"
       404:
         description: item not found
-delete:
-  tags:
-    - cheese
-  summary: Delete cheese by ID
-  description: Deletes a cheese by ID
-  parameters:
-    - name: id
-      in: path
-      description: ID of the cheese to delete
-      required: true
-      type: string
-  responses:
-    204:
-      description: successful operation - no content
-    404:
-      description: item not found
+  delete:
+    tags:
+      - cheese
+    summary: Delete cheese by ID
+    description: Deletes a cheese by ID
+    parameters:
+      - name: id
+        in: path
+        description: ID of the cheese to delete
+        required: true
+        type: string
+    responses:
+      204:
+        description: successful operation - no content
+      404:
+        description: item not found
 definitions:
   cheese:
     type: object
